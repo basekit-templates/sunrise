@@ -287,23 +287,10 @@
     .post-content,
     .post-footer {
         display: inline-block;
-        width: 40%;
-        max-width: none;
-        margin: 0 30%;
+        width: 80%;
+        margin: 0 10%;
         background-color: transparent;
         z-index: 2;
-        @media only screen and (max-width: 1900px) {
-            width: 50%;
-            margin: 0 25%;
-        }
-        @media only screen and (max-width: 1500px) {
-            width: 60%;
-            margin: 0 20%;
-        }
-        @media only screen and (max-width: 1140px) {
-            width: 80%;
-            margin: 0 10%;
-        }
         @media only screen and (max-width: 900px) {
             width: 86%;
             margin: 0 7%;
@@ -311,6 +298,10 @@
         @media @tablet {
             width: 90%;
             margin: 0 5%;
+        }
+        @media @mobile {
+            width: 100%;
+            margin: 0 auto;
         }
     }
 
@@ -348,21 +339,13 @@
         font-size: 14px;
     }
     .button {
-        padding: 0 10px 0 0;
+        /*padding: 0 10px 0 0;*/
         color: @color-swatch5;
         background-color: transparent;
         &:hover {
             background-color: transparent;
             text-decoration: none;
-            &.icon--twitter {
-                color: #4099FF;
-            }
-            &.icon--facebook {
-                color: #3b5998;
-            }
-            &.icon--googleplus {
-                color: #d34836;
-            }
+            color: @color-swatch3;
         }
     }
 }
