@@ -1,10 +1,10 @@
 {
     "name": "Sunrise",
     "widgetVersion":2,
-    "thumbnail": "thumbnail.png",
-    "screenshot": "candidate-screenshot.jpg",
+    "thumbnail": "sunrise-screenshot.jpg",
+    "screenshot": "sunrise-screenshot-high.jpg",
     "templateType":"standard",
-    "pageTypes": ["home","donate", "blogpostlist"],
+    "pageTypes": ["home","donate"],
     "images": [
         "images/feature.jpg",
         "images/logo.png"
