@@ -1,0 +1,63 @@
+{% extends "layout.twig" %}
+{% block class %}bk-pt-home{% endblock %}
+{% block content %}
+
+<div class="header-container">
+    <div class="wrapper">
+        {% include "includes/header.twig" %}
+    </div>
+    <div class="homepage-feature wrapper">
+        {{widget('feature', 'featurehome', {
+            'header': 'profile',
+            'strapline': 'profile',
+            'defaultBgImg': asset("images/feature.jpg"),
+            'positionTopPercentage': '0',
+            'showBtn': true,
+            buttonText: "Lorem Ipsum"
+        })|raw}}
+    </div>
+    <div class="homepage-bar flex-container wrapper">
+        <div class="homepage-signup flex-item">
+            {{widget('signupform', 'emailsignup', {
+              'text': 'Submit',
+              'label': 'Start inspiring others today!',
+              'formTitle': 'Signup Form',
+              'email': 'profile'
+            })|raw}}
+        </div>
+        <div class="homepage-social flex-item">
+            {{widget('socialicons', 'socialnetworks', {
+            'googleplus': 'https://plus.google.com/101946323226233111530',
+            'linkedin':'http://www.linkedin.com/company/mycompanyname',
+            'facebook': 'https://www.facebook.com/mycompanyname',
+            'twitter': 'https://twitter.com/mycompanyname',
+            'youtube': 'https://www.youtube.com/user/mycompanyname',
+            'rss': 'http://news.bbc.co.uk/1/hi/help/rss/default.stm',
+            'pinterest': 'https://www.pinterest.com/mycompanyname',
+            'instagram': 'https://www.instagram.com/mycompanyname'
+            })|raw}}
+        </div>
+    </div>
+</div>
+    
+<div class="wrapper">  
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Page Content -->
+        <section class="template-content">
+            <!-- Main Widget Zone -->
+            {{zone('main')|raw}}
+        </section>
+        <!-- End Page Content -->
+
+    </div>
+    <!-- End Container -->
+</div>
+
+<!-- Footer Include -->
+{% include "includes/footer.twig" %}
+
+
+
+{% endblock %}

@@ -1,0 +1,822 @@
+// -----------------------------
+// IMPORTS & MAIN STYLES
+// -----------------------------
+
+// -----------------------------
+// Template Imports
+// -----------------------------
+
+@import "@{templateCommon}/bk-less-framework-v8.less"; // BaseKit LESS Framework
+
+@import "@{templateLocal}/less/widget-gallery.less";    // Gallery Widget
+@import "@{templateLocal}/less/widget-slideshow.less";  // Slideshow Widget
+
+@import "@{templateLocal}/less/forms-and-buttons.less"; // Forms and Buttons
+
+@import "@{templateLocal}/less/header-style.less";
+
+@import "@{templateLocal}/less/plugin-blog.less";       // Plugins
+@import "@{templateLocal}/less/plugin-menu.less";
+@import "@{templateLocal}/less/plugin-ecommerce.less";
+
+@import "@{templateLocal}/less/mixins.less";
+
+
+
+
+// -----------------------------
+// Template Styles
+// -----------------------------
+
+.container {
+    padding-top: 3em;
+    padding-bottom: 20px;
+    @media @tablet {
+        padding-top: 2.5em;
+    }
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    .container {
+        background-color: @color__container--background;
+    }
+}
+
+
+
+// -----------------------------
+// Typography
+// -----------------------------
+
+.company-link {
+    color: @color__companyname--text;
+    font-family: @font__companyname--font-family;
+    font-size: @font__companyname--font-size;
+    font-weight: @font__companyname--font-weight;
+    line-height: @font__companyname--line-height;
+    letter-spacing: @font__companyname--letter-spacing;
+    @media only screen and (max-width : 600px) {
+        font-size: bkscale(@font__companyname--font-size,0.8);
+        line-height: bkscale(@font__companyname--line-height,0.8);
+    }
+}
+
+a {
+    color: @color__link--text;
+    .transition( all, 0.5s, ease );
+}
+
+h1 {
+    color: @color__h1--text;
+    font-family: @font__h1--font-family;
+    font-size: @font__h1--font-size;
+    font-weight: @font__h1--font-weight;
+    line-height: @font__h1--line-height;
+    letter-spacing: @font__h1--letter-spacing;
+}
+
+h2,
+.pagetitle {
+    color: @color__h2--text;
+    font-family: @font__h2--font-family;
+    font-size: @font__h2--font-size;
+    font-weight: @font__h2--font-weight;
+    line-height: @font__h2--line-height;
+    letter-spacing: @font__h2--letter-spacing;
+}
+
+h3 {
+    color: @color__h3--text;
+    font-family: @font__h3--font-family;
+    font-size: @font__h3--font-size;
+    font-weight: @font__h3--font-weight;
+    line-height: @font__h3--line-height;
+    letter-spacing: @font__h3--letter-spacing;
+}
+
+h4 {
+    color: @color__h4--text;
+    font-family: @font__h4--font-family;
+    font-size: @font__h4--font-size;
+    font-weight: @font__h4--font-weight;
+    line-height: @font__h4--line-height;
+    letter-spacing: @font__h4--letter-spacing;
+}
+
+p {
+    color: @color__p--text;
+    font-family: @font__p--font-family;
+    font-size: @font__p--font-size;
+    font-weight: @font__p--font-weight;
+    line-height: @font__p--line-height;
+    letter-spacing: @font__p--letter-spacing;
+}
+
+
+
+
+// -----------------------------
+// Zone width
+// -----------------------------
+
+.bk-pt-home,
+.bk-pt-default,
+.bk-pt-donate {
+    .template-content { // zone area in V7
+        width: 90%;
+        margin-right: 5%;
+        margin-left: 5%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        @media only screen and (min-width: 1140px) {
+            width: 960px; // 1140px - 10% for margins
+            margin: 10px auto;
+        }
+    }
+}
+
+.bk-pt-blogpostlist .container .widget {
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    @media only screen and (min-width: 1140px) {
+        width: 960px; // 1140px - 10% for margins
+        margin: 10px auto;
+    }
+}
+
+
+// -----------------------------
+// Widgets
+// -----------------------------
+
+.container .widget {
+    width: 100%;
+    margin: 10px 0;
+}
+
+// Widgets in Responsive Columns
+.container {
+    // Two Columns
+    .columns-two-left,
+    .columns-two-right,
+    // Three Columns
+    .columns-three-left,
+    .columns-three-middle,
+    .columns-three-right,
+    // Four Columns
+    .columns-four-first,
+    .columns-four-second,
+    .columns-four-third,
+    .columns-four-fourth {
+        .widget {
+            width: auto;
+            margin: 10px 0;
+            @media only screen and (min-width: 1140px) {
+                width: auto;
+                margin: 10px auto;
+            }
+        }
+    }
+}
+
+
+// -----------------------------
+// Tag link
+// -----------------------------
+
+.tag-link:after {
+    content: "\002C";
+}
+
+.tag-item:last-child .tag-link:after {
+    content: "";
+}
+
+
+
+
+// -----------------------------
+// Content Widget
+// -----------------------------
+
+@media @mobile {
+    h1 {
+        font-size: bkscale(@font__h1--font-size,0.8);
+        line-height: bkscale(@font__h1--line-height,0.8);
+    }
+    h2 {
+        font-size: bkscale(@font__h2--font-size,0.8);
+        line-height: bkscale(@font__h2--line-height,0.8);
+    }
+    h3 {
+        font-size: bkscale(@font__h3--font-size,0.9);
+        line-height: bkscale(@font__h3--line-height,0.9);
+    }
+    h4 {
+        font-size: bkscale(@font__h4--font-size,0.9);
+        line-height: bkscale(@font__h4--line-height,0.9);
+    }
+    p {
+        font-size: bkscale(@font__p--font-size,0.9);
+        line-height: bkscale(@font__p--line-height,0.9);
+    }
+}
+
+
+
+
+// -----------------------------
+// Blockquote
+// -----------------------------
+
+.content blockquote {
+    position: relative;
+    quotes: "“" "”" "“" "”";
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 35px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-family: @font__h3--font-family;
+    color: @color-swatch4;
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+    }
+    @media @mobile {
+        margin-right: 0;
+    }
+    &:before {
+        position: absolute;
+        left: 0;
+        top: -5px;
+        font-size: 60px;
+        line-height: 50px;
+        padding: 0;
+        width: 28px;
+        height: 32px;
+        text-align: center;
+        vertical-align: middle;
+        color: @color-swatch3;
+    }
+    h1, h2, h3, h4, p, a {
+        font-family: @font__h3--font-family;
+        color: @color-swatch4;
+    }
+}
+
+.responsivecolumns {
+    .content blockquote {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+
+
+
+// -----------------------------
+// Twitter Feed
+// -----------------------------
+
+.twitter .tweet-item {
+    p {
+        padding-bottom: 0;
+        word-wrap: break-word;
+    }
+    .tweet-wrap {
+        max-width: 80%;
+    }
+    .avatar {
+        max-width: 16%;
+        margin-right: 15px;
+        @media @mobile {
+            margin-bottom: 10px;
+            margin-right: 0;
+        }
+    }
+    .avatar-image {
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+    }
+    .tweet-wrap {
+        max-width: 77%;
+        padding-left: 15px;
+        border-left: 3px solid @color__primary;
+        @media @mobile {
+            padding-left: 0;
+            border: none;
+            margin: 0 auto;
+        }
+    }
+    .avatar,
+    .tweet-wrap {
+        display: inline-block;
+        vertical-align: middle;
+        @media @mobile {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+    .account-link {
+        font-family: @font__h3--font-family;
+        color: @color__primary;
+        font-size: @font__p--font-size;
+        font-weight: @font__p--font-weight;
+        line-height: @font__p--line-height;
+    }
+    .tweet-metadata {
+        font-size: 90%;
+        .timestamp, .via {
+            color: lighten(@color-swatch5, 15%)
+        }
+    }
+    .timestamp {
+        margin-right: 5px;
+    }
+}
+
+// Three Columns on Tablet
+.columns-three-left,
+.columns-three-middle,
+.columns-three-right {
+    .twitter .tweet-item {
+        .avatar {
+            margin-bottom: 10px;
+            margin-right: 0;
+        }
+        .tweet-wrap {
+            padding-left: 0;
+            border: none;
+            margin: 0 auto;
+        }
+        .avatar,
+        .tweet-wrap {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}
+
+// Four Columns
+.columns-four-first,
+.columns-four-second,
+.columns-four-third,
+.columns-four-fourth {
+    .twitter .tweet-item {
+        .avatar {
+            margin-bottom: 10px;
+            margin-right: 0;
+        }
+        .tweet-wrap {
+            padding-left: 0;
+            border: none;
+            margin: 0 auto;
+        }
+        .avatar,
+        .tweet-wrap {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}
+
+
+
+
+// -----------------------------
+// Profile Widget: Twitter
+// -----------------------------
+
+.profile .twitter .tweet-item {
+    text-align: center;
+    .avatar {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    .avatar-link {
+        display: block;
+        max-width: 48px;
+        margin: 0 auto;
+    }
+    .avatar-image {
+        margin: 0 auto;
+    }
+    .tweet-wrap {
+        padding-left: 0;
+        border: none;
+        margin: 0 auto;
+    }
+    .avatar,
+    .tweet-wrap {
+        max-width: 100%;
+        width: 100%;
+    }
+    .account-link {
+        color: @color__secondary;
+    }
+    .tweet-metadata {
+        .timestamp, .via {
+            color: @color-swatch5;
+        }
+    }
+}
+
+
+
+
+// -----------------------------
+// Map Widget
+// -----------------------------
+
+.map {
+    border: 1px solid darken(@color__body--background, 8%);
+}
+
+
+
+
+
+// -----------------------------
+// Click to Call Widget
+// -----------------------------
+
+.clicktocall {
+    a:hover {
+        text-decoration: none;
+        cursor: text;
+    }
+    @media @mobile {
+        .phone-number-link {
+            width: 100%;
+            padding: 8px 20px;
+            text-align: center;
+        }
+        a:hover {
+            cursor: pointer;
+        }
+        .label {
+            color: @color__button--text;
+        }
+    }
+}
+
+
+
+
+// -----------------------------
+// Dropbox Label
+// -----------------------------
+
+.dropbox .label {
+    margin-left: 10px;
+}
+
+
+
+
+// -----------------------------
+// Image Widget
+// -----------------------------
+
+.imagewidget {
+    .image-title {
+        font-family:@font__feature-headline--font-family;
+        font-size:16px;
+        font-weight: 400;
+        line-height:26px;
+        color: @color-swatch4;
+        letter-spacing: inherit;
+    }
+    .image-description {
+        font-family:@font__feature-strapline--font-family;
+        font-size:16px;
+        font-weight: 400;
+        line-height:26px;
+        color: @color-swatch5;
+        letter-spacing: inherit;
+    }
+}
+
+
+
+
+// -----------------------------
+// Divider (Keyline)
+// -----------------------------
+
+hr.rule {
+    height: 1px;
+    background-color: darken(@color__body--background, 8%);
+}
+
+
+// Horizontal rule in blog posts
+hr {
+    height: 3px;
+    border: 0;
+    margin-bottom: 18px;
+    background-color: darken(@color-swatch7, 5%);
+}
+
+
+
+
+// -----------------------------
+// Yelp
+// -----------------------------
+
+
+.yelpreview ul {
+    list-style: none;
+    margin: 16px 0;
+}
+
+
+
+
+// -----------------------------
+// Feature
+// -----------------------------
+
+.feature {
+    .background-image,
+    .content-wrap {
+        min-height: 600px;
+        @media only screen and (max-width: 900px) {
+            min-height: 500px;
+        }
+        @media @tablet {
+            min-height: 450px;
+        }
+        @media only screen and (max-width: 600px) {
+            min-height: 340px;
+        }
+        @media @mobile {
+            min-height: 250px;
+        }
+    }
+    .background-image {
+        display: table;
+        width: 100%;
+        background-size: cover;
+        // Overlay
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            background: -moz-linear-gradient(left, @color__feature-content--background 0%, rgba(0,0,0,0) 100%);
+            background: -webkit-linear-gradient(left,  @color__feature-content--background 0%,rgba(0,0,0,0) 100%);
+            background: linear-gradient(to right,  @color__feature-content--background 0%,rgba(0,0,0,0) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8111c26', endColorstr='#00000000',GradientType=1 );
+
+        }
+    }
+    .content-wrap {
+        position: relative;
+        width: 100%;
+        vertical-align: middle;
+        display: table-cell;
+        z-index: 99;
+        padding: 30px 0;
+    }
+    .content-inner-wrap {
+        max-width: 960px;
+        margin: 0 auto;
+        @media only screen and (max-width : 1140px) {
+            max-width: 90%;
+        }
+    }
+    .headline {
+        font-family: @font__feature-headline--font-family;
+        color: @color__feature-headline--text;
+        font-size: @font__feature-headline--font-size;
+        font-weight: @font__feature-headline--font-weight;
+        line-height: @font__feature-headline--line-height;
+        letter-spacing: @font__feature-headline--letter-spacing;
+        text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+    }
+    .strapline {
+        font-family: @font__feature-strapline--font-family;
+        color: @color__feature-strapline--text;
+        font-size: @font__feature-strapline--font-size;
+        font-weight: @font__feature-strapline--font-weight;
+        line-height: @font__feature-strapline--line-height;
+        letter-spacing: @font__feature-strapline--letter-spacing;
+        text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+    }
+    .button {
+        width: auto;
+        margin: 10px 0 0;
+        padding: 0 20px;
+        font-size: 14px;
+        line-height: 24px;
+        color: @color__feature-button--text;
+        background-color: transparent;
+        border: 2px solid @color__navigation--text;
+        &:hover {
+            border: 2px solid @color__navigation--text-hover;
+        }
+    }
+}
+
+// Feature Image and Text Size on Tablet
+@media only screen and (max-width : 960px) {
+    .feature {
+        .headline {
+            font-size: bkscale(@font__feature-headline--font-size, .8);
+            line-height: bkscale(@font__feature-headline--line-height, .8);
+        }
+        .strapline {
+            font-size: bkscale(@font__feature-strapline--font-size, .9);
+            line-height: bkscale(@font__feature-strapline--line-height, .9);
+        }
+        .button {
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+}
+
+// Feature Image and Text Size on Mobile
+@media @mobile {
+    .feature {
+        .headline {
+            font-size: bkscale(@font__feature-headline--font-size, .6);
+            line-height: bkscale(@font__feature-headline--line-height, .6);
+        }
+        .strapline {
+            font-size: bkscale(@font__feature-strapline--font-size, .8);
+            line-height: bkscale(@font__feature-strapline--line-height, .8);
+        }
+        .button {
+            font-size: 14px;
+            line-height: 24px;
+        }
+    }
+}
+
+
+
+
+// -------------------
+// Social Icons Widget
+// -------------------
+
+.social-name {
+    display: none;
+}
+
+.social-item {
+    margin-right: 0;
+}
+
+.social-link {
+    padding: 5px;
+    color: @color__socialicons--icon;
+}
+
+// Social icons colour
+.social-link:before {
+    color: @color__socialicons--icon;
+    font-size: 16px;
+    margin-right: 10px;
+    @media @tablet {
+        font-size: 18px;
+    }
+}
+
+.social-link:hover {
+    text-decoration: none;
+    &:before {
+        color: @color__secondary;
+        @media @tablet {
+            color: lighten(@color-swatch4, 40%);
+        }
+    }
+}
+
+
+
+
+
+// -----------------------------
+// Footer
+// -----------------------------
+
+.template-footer {
+    text-align: center;
+    background-color: darken(@color__body--background, 6%);
+    .container {
+        margin-top: 0;
+    }
+}
+
+// Columns in Footer
+// -----------------
+
+.template-footer {
+    .flex-item {
+        -webkit-flex: 1 1 48%;
+        -ms-flex: 1 1 48%;
+        flex: 1 1 48%;
+        @media @tablet {
+            -webkit-flex: 1 1 100%;
+            -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+            width: 100%;
+        }
+    }
+    .widget {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .profile .signupform .form-body {
+        max-width: 450px;
+        width: 90%;
+        @media @mobile {
+            max-width: 100%;
+        }
+    }
+}
+
+.template-footer1 {
+    padding: 30px 0;
+    @media @tablet {
+        padding: 30px 5%;
+    }
+}
+
+.template-footer1 {
+    background-color: darken(@color__header--background,50%);
+    .widget {
+        h1, h2, h3, h4, p, a, .social-link:before,
+        .signupform .legend {
+            color: @color-swatch7;
+        }
+    }
+    .profile .twitter {
+        .account-link, .tweet-metadata .via, .tweet-metadata .timestamp {
+            color: @color-swatch7;
+        }
+    }
+    .headline,
+    .strapline,
+    .description {
+        font-family: @font__p--font-family;
+        font-size: @font__p--font-size;
+        font-weight: @font__p--font-weight;
+        line-height: @font__p--line-height;
+        letter-spacing: @font__p--letter-spacing;
+    }
+    @media @tablet {
+        display: block;
+        padding: 30px 5%;
+    }
+}
+
+
+// -----------------------------
+// Profile Widget
+// -----------------------------
+
+.template-footer .profile {
+    .address p {
+        padding-bottom: 0;
+    }
+    .headline,
+    .strapline,
+    .description {
+        @media @mobile {
+            font-size: @font__p--font-size;
+            font-weight: @font__p--font-weight;
+            line-height: @font__p--line-height;
+        }
+    }
+}
+
+
+
+// -----------------------------
+// Donate Instructions
+// -----------------------------
+
+.donate-instructions {
+    display: none;
+}
+
+.edit .donate-instructions {
+    display: block;
+}
+

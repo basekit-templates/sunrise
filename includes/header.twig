@@ -1,0 +1,25 @@
+<!-- Template Widgets -->
+
+<div class="flex-container">
+
+    <div class="tablet-top-bar"></div>
+    <div class="flex-item flex-button">
+        {{widget('button', 'docsbutton', {
+          'text': 'Donate',
+          'align': 'widget-align-centre',
+          'target': '_blank'
+        })|raw}}
+    </div>
+    <div class="flex-item flex-nav">
+        {{widget('extendednavigation', 'navigation', {"align":"right"})|raw}}
+    </div>
+    <div class="flex-item flex-logo">
+        {{widget('logo', 'logo', {"defaultlogo": asset('images/logo-default.png'), "showTplWidget":"0"})|raw}}
+    </div>
+    <div class="flex-item flex-companyname">
+        {{widget('companyname', 'companyname', {"business": "profile"})|raw}}
+    </div>
+
+</div>
+
+<!-- End Template Widgets -->
