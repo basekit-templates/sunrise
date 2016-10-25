@@ -80,7 +80,7 @@
             "font-weight": "400",
             "line-height": "25px",
             "color": "@color-swatch3",
-            "letter-spacing": "0px",
+            "letter-spacing": "1px",
             "background-color": "@color-swatch3",
             "background-color-hover": "darken(@color-swatch3, 10%)"
         },
