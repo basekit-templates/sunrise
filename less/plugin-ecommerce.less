@@ -66,14 +66,16 @@
     margin-top: 0;
 }
 
-.product-item-title a {
-    color: @color__ecomproductslist-product-title--text;
-    font-size: @font__p--font-size;
+.product-item-title {
     line-height: @font__p--line-height;
+    a {
+        color: @color__ecomproductslist-product-title--text;
+        font-size: @font__p--font-size;
         &:hover {
             color: @color__secondary;
             text-decoration: none;
         }
+    }
 }
 
 // Footer
